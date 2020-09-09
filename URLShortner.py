@@ -50,6 +50,7 @@ class ShortenURL():
         """
         return self.tiny_to_long.get(shortUrl)
 
+
 tiny_url = ShortenURL()
 str = 'Abhishe Jain'
 print('Original URL: ', str)
