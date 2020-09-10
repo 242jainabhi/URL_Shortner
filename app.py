@@ -3,7 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from URLShortner import ShortenURL
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/test.db'
+
+ENV = 'prod'
+if ENV == 'dev':
+    app.debug = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/main'
+else:
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://uczejptlqhvfqr:f7d9a98c519c8a2c059dab0f1a6d77ac1ab3680e6bc2c977275eb6ff7ce28df7@ec2-100-25-100-81.compute-1.amazonaws.com:5432/dfuidlno58nps5'
 db = SQLAlchemy(app)
 
 
@@ -26,29 +33,7 @@ def index():
         db.session.add(url) 
         db.session.commit()
         entries = URL.query.all()
-    '''
-    home.html is loaded when blank URL is loaded. It displays the input field for repo name and a button.
-    If the button is clicked after entering the repository name, repo_name and stats_dict arguments will be 
-    populated and home.html will be loaded again which will display the table of issue counts.
-    '''
     return render_template('home.html', entries=entries)
 
-@app.route('/shorten')
-def shorten():
-    pass
-
-@app.route('/long_url')
-def long_url():
-    pass
-
 if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
-    '''
-    admin = User(username='admin', email='admin@example.com')
-    guest = User(username='guest', email='guest@example.com')
-    db.session.add(admin)
-    db.session.add(guest)
-    db.session.commit()
-    print(User.query.all())
-    print(User.query.filter_by(username='admin').first())'''
+    app.run()
