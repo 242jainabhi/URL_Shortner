@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from URLShortner import ShortenURL
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
 
