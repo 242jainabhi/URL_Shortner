@@ -1,7 +1,7 @@
 # URL_Shortner
 
 Flask
+
 PostgreSQL
 
-Deployment:
-Deployed on Heroku: https://test-tinu-url.herokuapp.com/
+Deployment: https://test-tinu-url.herokuapp.com/
