@@ -50,11 +50,11 @@ class ShortenURL():
         """
         return self.tiny_to_long.get(shortUrl)
 
+if __name__ == '__main__':
+    tiny_url = ShortenURL()
+    str = 'Abhishe Jain'
+    print('Original URL: ', str)
 
-tiny_url = ShortenURL()
-str = 'Abhishe Jain'
-print('Original URL: ', str)
-
-shortened_url = tiny_url.encode(str)
-print('Shortened url: ', shortened_url)
-print('Original url: ', tiny_url.decode(shortened_url))
+    shortened_url = tiny_url.encode(str)
+    print('Shortened url: ', shortened_url)
+    print('Original url: ', tiny_url.decode(shortened_url))
