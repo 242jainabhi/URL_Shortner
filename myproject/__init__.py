@@ -22,7 +22,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/main'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://exilzivydanmfb:ae842b710a694b2d8ef0b5a2a3b4c0ef681ee55c0685384c8643bf887a493547@ec2-54-161-58-21.compute-1.amazonaws.com:5432/d2ju31dvtv4h5p'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://hepujztneyqcxi:105c1e53887a1caaeface1c095cf859c3dac5d4396853948eba0bc55f2d3f349@ec2-34-235-62-201.compute-1.amazonaws.com:5432/d9irstqfj08lam'
 
 db = SQLAlchemy(app)
 Migrate(app,db)
