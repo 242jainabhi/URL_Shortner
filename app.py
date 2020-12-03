@@ -59,7 +59,6 @@ def login():
 
         if user.check_password(form.password.data) and user is not None:
             #Log in the user
-
             login_user(user)
             flash('Logged in successfully.')
 
