@@ -2,7 +2,6 @@ import hashlib
 import string
 
 class ShortenURL():
-    _PREFIX = 'localhost:5000'
     _ALPHABET = string.ascii_letters + string.digits
     _BASE = len(_ALPHABET)
 
