@@ -2,7 +2,7 @@ import hashlib
 import string
 
 class ShortenURL():
-    _PREFIX = 'http://tinyurl.com'
+    _PREFIX = 'localhost:5000'
     _ALPHABET = string.ascii_letters + string.digits
     _BASE = len(_ALPHABET)
 
@@ -36,11 +36,11 @@ class ShortenURL():
         xored = x_as_int ^ y_as_int ^ z_as_int
 
         suffix = self._convert_to_base(xored)
-        tiny_url = ShortenURL._PREFIX + '/' + suffix
-        if tiny_url not in self.tiny_to_long:
-            self.tiny_to_long[tiny_url] = longUrl
+        # tiny_url = ShortenURL._PREFIX + '/' + suffix
+        # if tiny_url not in self.tiny_to_long:
+        #     self.tiny_to_long[tiny_url] = longUrl
 
-        return tiny_url
+        return suffix
 
     def decode(self, shortUrl):
         """Decodes a shortened URL to its original URL.

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  {% if current_user.is_authenticated %}
+  	<p>Welcome, {{ current_user.username }}! You are logged in!</p>
+
+	<div id="main_div">
+			<div id="form_div" class="center-on-page">
+				<form action="{{ url_for('welcome_user', userid=userid, username=username) }}" method='POST'>
+					<label>Enter Long URL</label>
+					<input type="text" name="long_url">
+					<button type="submit">Shorten the URL</button>
+				</form>
+			</div>
+			{% if entries %}
+			<div id='table_div'>
+
+				<table>
+					<thead>
+						<tr style="text-align:center">
+							<th>Short URL</th>
+							<th>Long URL</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for entry in entries %}
+						<tr>
+							<td><a href={{entry.long_url}} target='_blank'>{{ entry.short_url }}</a></td>
+							<td>{{ entry.long_url }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% endif %}
+		</div>
+
+  {% else %}
+    <p>Please login or register!</p>
+  {% endif %}
+</div>
+{% endblock %}
